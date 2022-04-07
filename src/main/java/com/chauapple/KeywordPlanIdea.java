@@ -22,19 +22,7 @@ import java.util.List;
 public class KeywordPlanIdea {
 
     public static void main(String[] args) throws IOException {
-        GoogleAdsClient googleAdsClient = null;
-        try {
-            ClassLoader classLoader = KeywordPlanIdea.class.getClassLoader();
-            File file = new File(classLoader.getResource("ads.properties").getFile());
-            googleAdsClient = GoogleAdsClient.newBuilder().fromPropertiesFile(file).build();
-        } catch (FileNotFoundException fnfe) {
-            System.err.printf(
-                    "Failed to load GoogleAdsClient configuration from file. Exception: %s%n", fnfe);
-            System.exit(1);
-        } catch (IOException ioe) {
-            System.err.printf("Failed to create GoogleAdsClient. Exception: %s%n", ioe);
-            System.exit(1);
-        }
+        GoogleAdsClient googleAdsClient = new KeywordPlanIdea().connectAdsClient();
 
         long customerId = 8008776696l;
         long languageId = 1005l;
@@ -43,7 +31,6 @@ public class KeywordPlanIdea {
         List<Long> locationIds = new ArrayList<>();
         locationIds.add(1009023l);
         locationIds.add(1009024l);
-
 
         List<String> keywords = new ArrayList<>();
         keywords.add("sushi");
@@ -73,6 +60,27 @@ public class KeywordPlanIdea {
             System.exit(1);
         }
     }
+
+    //<editor-fold desc="CONNECT ADS CLIENT">
+    private GoogleAdsClient connectAdsClient() {
+        GoogleAdsClient googleAdsClient = null;
+        try {
+            ClassLoader classLoader = KeywordPlanIdea.class.getClassLoader();
+            File file = new File(classLoader.getResource("ads.properties").getFile());
+            googleAdsClient = GoogleAdsClient.newBuilder().fromPropertiesFile(file).build();
+        } catch (FileNotFoundException fnfe) {
+            System.err.printf(
+                    "Failed to load GoogleAdsClient configuration from file. Exception: %s%n", fnfe);
+            System.exit(1);
+        } catch (IOException ioe) {
+            System.err.printf("Failed to create GoogleAdsClient. Exception: %s%n", ioe);
+            System.exit(1);
+        }
+        return googleAdsClient;
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="RUN EXAMPLE">
 
     /**
      * Runs the example.
@@ -138,4 +146,5 @@ public class KeywordPlanIdea {
             }
         }
     }
+    //</editor-fold>
 }
