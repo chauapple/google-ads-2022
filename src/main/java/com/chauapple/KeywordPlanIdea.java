@@ -24,16 +24,16 @@ public class KeywordPlanIdea {
     public static void main(String[] args) throws IOException {
         GoogleAdsClient googleAdsClient = new KeywordPlanIdea().connectAdsClient();
 
-        long customerId = 8008776696l;
+        long customerId = 8141845268l;
         long languageId = 1005l;
 
         //https://developers.google.com/google-ads/api/reference/data/geotargets
         List<Long> locationIds = new ArrayList<>();
-        locationIds.add(1009023l);
+        locationIds.add(2392l);
         locationIds.add(1009024l);
 
         List<String> keywords = new ArrayList<>();
-        keywords.add("sushi");
+        keywords.add("寿司");
 
 
         try {

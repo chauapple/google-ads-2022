@@ -21,8 +21,8 @@ public class GenerateForecastMetrics {
     public static void main(String[] args) {
         GoogleAdsClient googleAdsClient = new GenerateForecastMetrics().connectAdsClient();
 
-        long customerId = 8008776696l;
-        long keywordPlanId = 389513461l;
+        long customerId = 8141845268l;
+        long keywordPlanId = 389601880l;
 
         try {
             new GenerateForecastMetrics()

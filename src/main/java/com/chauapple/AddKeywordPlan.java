@@ -26,7 +26,7 @@ public class AddKeywordPlan {
 
     public static void main(String[] args) throws IOException {
         GoogleAdsClient googleAdsClient = new AddKeywordPlan().connectAdsClient();
-        long customerId = 8008776696l;
+        long customerId = 8141845268l;
 
         try {
             new AddKeywordPlan()
@@ -49,8 +49,8 @@ public class AddKeywordPlan {
 
     private void runExample(GoogleAdsClient googleAdsClient, Long customerId) {
         List<String> keywordList = new ArrayList<>();
-        keywordList.add("sushi");
-        keywordList.add("soba");
+        keywordList.add("成増 寿司");
+        keywordList.add("宮古 寿司");
 
         String keywordPlanResource = createKeywordPlan(googleAdsClient, customerId);
         String planCampaignResource = createKeywordPlanCampaign(googleAdsClient, customerId, keywordPlanResource);
